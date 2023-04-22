@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import vertexShader from './shader.vert'
 import fragmentShader from './shader.frag'
+import { Input } from '../engine/Input'
 
 export class Box extends THREE.Mesh {
   constructor() {
@@ -11,5 +12,11 @@ export class Box extends THREE.Mesh {
     })
 
     super(geometry, material)
+  }
+
+  update() {
+    if (Input.keys['w']) {
+      this.position.y += 0.1
+    }
   }
 }
